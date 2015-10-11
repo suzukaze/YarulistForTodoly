@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.suzukaze.yarulistfortodoly.view.EditItemView
+    android:id="@+id/edit_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/blue"
+            >
+
+            <LinearLayout
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/pressed_color_alpha_white"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_arrow_back_white_24dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:background="@color/white"
+            >
+
+            <EditText
+                android:id="@+id/item_name"
+                style="@style/ContentLargeText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="タスク名"
+                android:textColorHint="@color/gray"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name_layout"
+            android:layout_margin="8dp"
+            android:background="@drawable/pressed_color_white"
+            android:text="削除"
+            android:textColor="@color/black"
+            />
+    </RelativeLayout>
+
+</com.github.suzukaze.yarulistfortodoly.view.EditItemView>

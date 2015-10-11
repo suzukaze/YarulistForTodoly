@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/blue"
+                  android:orientation="vertical"
+        >
+
+        <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:minHeight="3dp"
+            android:visibility="gone"
+            app:spb_color="@color/white"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tags_viewpager"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <android.support.v4.view.PagerTabStrip
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_primary"
+                android:paddingBottom="8dp"
+                android:textAppearance="@android:style/TextAppearance.Holo.Small.Inverse"
+                />
+            </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+    <include layout="@layout/edit_item"/>
+
+    <include layout="@layout/project"/>
+
+</FrameLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Yarulist for Todo.ly</string>
+    <string name="yarulist">Yarulist</string>
+    <string name="add_task">やること</string>
+    <string name="settings">設定</string>
+    <string name="hint_email">　e-mail</string>
+    <string name="hint_password">　パスワード</string>
+    <string name="login">ログイン</string>
+    <string name="logout">ログアウト</string>
+    <string name="confirm_deleting" >プロジェクトを削除してよろしいですか?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="login_failure_message">e-mailまたはパスワワードに誤りがあります。</string>
+    <string name="error_message">エラーが発生しました</string>
+    <string name="show_completed_items">完了したアイテムを表示</string>
+    <string name="dont_show_completed_items">完了したアイテムを非表示</string>
+    <string name="failure_of_creating_project">プロジェクトの追加に失敗しました。</string>
+    <string name="project_name">プロジェクト名</string>
+</resources>

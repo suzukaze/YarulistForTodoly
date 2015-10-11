@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.suzukaze.yarulistfortodoly.view.ItemListView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/function_list_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/blue"
+            />
+
+        <LinearLayout
+            android:id="@+id/add_task_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:background="@color/white"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:id="@+id/add_task"
+                style="@style/ContentLargeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_task"
+                android:inputType="text"
+                android:textColorHint="@color/gray"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/show_completed_items_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_below="@+id/add_task_layout"
+            >
+
+            <Button
+                android:id="@+id/show_completed_items"
+                style="@style/Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/round"
+                android:text="@string/show_completed_items"
+                />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/show_completed_items_layout"
+            android:orientation="vertical"
+            />
+
+    </RelativeLayout>
+
+</com.github.suzukaze.yarulistfortodoly.view.ItemListView>
