@@ -2,6 +2,8 @@
 
 Yarulist for Todoly is a ToDo manager for [Todo.ly](https://todo.ly/).
 
+![yarukoto](docs/screenshot_yarukoto.png)
+
 ## Used libraries
 
 * OkHttp
