@@ -22,15 +22,15 @@
 
     <style name="ContentLargeText">
         <item name="android:textSize">@dimen/font_large</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">@color/light_black</item>
     </style>
     <style name="ContentText">
         <item name="android:textSize">@dimen/font_normal</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">@color/light_black</item>
     </style>
     <style name="ContentSmallText">
         <item name="android:textSize">@dimen/font_smaller</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">@color/light_black</item>
     </style>
 
     <style name="ContentWhiteLargeText">
