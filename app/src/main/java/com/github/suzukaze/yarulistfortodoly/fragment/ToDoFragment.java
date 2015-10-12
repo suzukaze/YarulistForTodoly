@@ -201,7 +201,7 @@ public class ToDoFragment extends Fragment implements HistoryManager.OnSyncFinis
       @Override
       public void onPageSelected(int position) {
         ItemListFragment itemListFragment = (ItemListFragment) adapter.findFragmentByPosition(tagsViewPager, position);
-        currentProject = itemListFragment.getProject();
+        currentProject = dataManager.getProjects().get(position);
         itemListFragment.show();
       }
 
