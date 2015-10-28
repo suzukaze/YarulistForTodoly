@@ -60,9 +60,10 @@ public class MainActivity extends AppCompatActivity {
   @Bind(R.id.sync)
   LinearLayout syncLayout;
 
-  private final AndroidCompositeSubscription compositeSubscription = new AndroidCompositeSubscription();
+  private AndroidCompositeSubscription compositeSubscription;
 
   private SharedPreferencesManager sharedPreferencesManager;
+  private PersistentDataManager persistentDataManager;
   private AccountManager accountManager;
   private DataManager dataManager;
   private HistoryManager historyManager;
@@ -76,20 +77,8 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
     setContentView(R.layout.activity_main);
-
-    ButterKnife.bind(this);
-
-    sharedPreferencesManager = new SharedPreferencesManager(getApplicationContext());
-
-    PersistentDataManager persistentDataManager = new PersistentDataManager(getApplicationContext());
-    accountManager = new AccountManager(persistentDataManager);
-
-    accountManager.load();
-
-    dataManager = new DataManager(persistentDataManager);
-
-    historyManager = new HistoryManager(accountManager, dataManager, persistentDataManager, compositeSubscription);
 
     ButterKnife.bind(this);
 
@@ -103,14 +92,13 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public void onPause() {
-    super.onPause();
-  }
-
-  @Override
-  public void onStop() {
     compositeSubscription.unsubscribe();
 
-    super.onStop();
+    accountManager.save();
+    dataManager.save();
+    historyManager.save();
+
+    super.onPause();
   }
 
   @Override
@@ -121,10 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
     init = true;
 
-    dataManager.load();
-
-    historyManager.load();
-
     settingsLayout.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -132,26 +116,53 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    if (accountManager.isCompleteAccount()) {
+    if (getAccountManager().isCompleteAccount()) {
       changeTodoFragment(false);
     } else {
       changeSettingFragment();
     }
   }
 
+  public AndroidCompositeSubscription getAndroidCompositeSubscription() {
+    if (compositeSubscription == null) {
+      compositeSubscription = new AndroidCompositeSubscription();
+    }
+    return compositeSubscription;
+  }
+
   public SharedPreferencesManager getSharedPreferencesManager() {
+    if (sharedPreferencesManager == null) {
+      sharedPreferencesManager = new SharedPreferencesManager(getApplicationContext());
+    }
     return sharedPreferencesManager;
   }
 
+  public PersistentDataManager getPersistentDataManager() {
+    if (persistentDataManager == null) {
+      persistentDataManager = new PersistentDataManager(getApplicationContext());
+    }
+    return persistentDataManager;
+  }
+
   public AccountManager getAccountManager() {
+    if (accountManager == null) {
+      accountManager = new AccountManager(getPersistentDataManager());
+    }
     return accountManager;
   }
 
   public DataManager getDataManager() {
+    if (dataManager == null) {
+      dataManager = new DataManager(getPersistentDataManager());
+    }
     return dataManager;
   }
 
   public HistoryManager getHistoryManager() {
+    if (historyManager == null) {
+      historyManager = new HistoryManager(getAccountManager(), getDataManager(), getPersistentDataManager(),
+          getAndroidCompositeSubscription());
+    }
     return historyManager;
   }
 
@@ -214,8 +225,8 @@ public class MainActivity extends AppCompatActivity {
       settingsFragment = SettingsFragment.newInstance();
     }
     replaceMainFragment(settingsFragment);
-  }
 
+}
   private void replaceMainFragment(Fragment fragment) {
     FragmentManager manager = getSupportFragmentManager();
     manager.beginTransaction()

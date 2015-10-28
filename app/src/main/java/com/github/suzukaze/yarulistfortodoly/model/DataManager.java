@@ -34,6 +34,8 @@ public class DataManager {
 
   public DataManager(PersistentDataManager persistentDataManager) {
     this.persistentDataManager = persistentDataManager;
+
+    load();
   }
 
   public void clear() {

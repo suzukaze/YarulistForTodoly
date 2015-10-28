@@ -18,7 +18,6 @@ package com.github.suzukaze.yarulistfortodoly.viewmodel;
 
 import com.github.suzukaze.yarulistfortodoly.model.Account;
 import com.github.suzukaze.yarulistfortodoly.model.AccountManager;
-import com.github.suzukaze.yarulistfortodoly.model.Config;
 
 public class SettingsViewModel {
 
@@ -32,9 +31,6 @@ public class SettingsViewModel {
 
   public void saveAccount(Account account) {
     accountManager.setAccount(account);
-    if (Config.SAVE_PASSWORD) {
-      accountManager.save();
-    }
   }
 
   public void loadAccount() {

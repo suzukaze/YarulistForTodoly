@@ -49,8 +49,11 @@ public class HistoryManager {
     this.accountManager = accountManager;
     this.persistentDataManager = persistentDataManager;
     this.compositeSubscription = compositeSubscription;
+
     commands = new LinkedList<>();
     gson = new Gson();
+
+    load();
   }
 
   public void addCommand(Command command) {

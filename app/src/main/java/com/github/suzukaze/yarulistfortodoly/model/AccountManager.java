@@ -25,6 +25,8 @@ public class AccountManager {
 
   public AccountManager(PersistentDataManager persistentDataManager) {
     this.persistentDataManager = persistentDataManager;
+
+    load();
   }
 
   public void setAccount(Account account) {
