@@ -1,6 +1,6 @@
-## Yarulist for Todo.ly
+## Yarulist for Todo.ly  [![Circle CI](https://circleci.com/gh/suzukaze/YarulistForTodoly/tree/master.svg?style=svg)](https://circleci.com/gh/suzukaze/YarulistForTodoly/tree/master)
 
-Yarulist for Todo.ly is a ToDo manager for [Todo.ly](https://todo.ly/).
+Yarulist for Todo.ly is a ToDo manager for [Todo.ly](https://todo.ly/). 
 
 ![yarukoto](docs/screenshot_yarukoto.png)
 
