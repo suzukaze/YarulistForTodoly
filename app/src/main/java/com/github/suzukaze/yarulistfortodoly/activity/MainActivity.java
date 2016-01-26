@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public void onPause() {
-    compositeSubscription.unsubscribe();
+    getAndroidCompositeSubscription().unsubscribe();
 
     accountManager.save();
     dataManager.save();
